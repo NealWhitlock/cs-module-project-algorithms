@@ -2,21 +2,40 @@
 Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
+# def single_number(arr):
+#     # Create a set
+#     num_set = set()
+#     # Loop through items in the list
+#     for item in arr:
+#         # Check if item is in set,
+#         if item not in num_set:
+#             # If not, add to set
+#             num_set.add(item)
+#         else:
+#             # If so, remove from set
+#             num_set.remove(item)
+    
+#     # Return the only value in the set
+#     return num_set.pop()
+
+'''
+Change to dictionary instead of set or list
+'''
 def single_number(arr):
     # Create a set
-    num_set = set()
+    num_set = dict()
     # Loop through items in the list
     for item in arr:
-        # Check if item is in set,
+        # Check if item is in dict,
         if item not in num_set:
             # If not, add to set
-            num_set.add(item)
+            num_set[item] = 1
         else:
-            # If so, remove from set
-            num_set.remove(item)
+            # If so, remove from dict
+            del num_set[item]
     
     # Return the only value in the set
-    return num_set.pop()
+    return [key for key in num_set.keys()][0]
 
 
 if __name__ == '__main__':
